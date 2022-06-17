@@ -14,7 +14,10 @@ const MovieDetailWrapper = styled.section`
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 3rem;
+    @media screen and (max-width: 780px) {
+        margin: 0 auto;
+    }
 
     header {
         width: 100%;

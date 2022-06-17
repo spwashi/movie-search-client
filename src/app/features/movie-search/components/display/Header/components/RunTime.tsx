@@ -18,11 +18,11 @@ const Time =
 export function RunTime({runtime}: { runtime: string }) {
   const length  = +(runtime.split(' min') || '')[0];
   const hours   = Math.floor(length / 60);
-  const minutes =   length % 60;
+  const minutes = length % 60;
 
   return (
     <Time className="runtime" dateTime={`P${hours}H${minutes}M`}>
-      {hours && <div className="hours">{hours} {(hours ? 'hour' + (hours > 1 ? 's' : '') : '')}</div>}
+      {hours > 0 && <div className="hours">{hours} {(hours ? 'hour' + (hours > 1 ? 's' : '') : '')}</div>}
       {minutes > 0 && <div className="minutes">{minutes} {(minutes ? 'minute' + (minutes > 1 ? 's' : '') : '')}</div>}
     </Time>
   );
