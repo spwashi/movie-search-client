@@ -1,16 +1,13 @@
 import React from 'react';
-import logo from '../assets/ABR-Logo-Horizontal.png';
 import './styles/App.scss';
-import {MovieSearchBar} from './MovieSearchBar';
-import {MovieDisplay} from './MovieDisplay';
+import {MovieSearchBar} from './features/movie-search/MovieSearchBar';
+import {MovieDisplay} from './features/movie-search/MovieDisplay';
+import {AppHeader} from './components/header/AppHeader';
 
 function App() {
   return (
     <main>
-      <header>
-        <a href="https://theabr.org" title="The American Board of Radiology">
-          <img src={logo} className="logo" alt="ABR logo"/></a>
-      </header>
+      <AppHeader/>
       <MovieSearchBar/>
       <MovieDisplay/>
     </main>
