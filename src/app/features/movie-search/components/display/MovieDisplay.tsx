@@ -1,6 +1,6 @@
 import {MovieData} from '../../query/MovieApiQuery';
 import styled from 'styled-components';
-import Header from './header';
+import Header from './Header';
 import Body from './Body';
 import {MovieContextProvider} from '../../context/MovieContext';
 
