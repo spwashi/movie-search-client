@@ -14,7 +14,7 @@ const MovieSearchWrapper =
             justify-content: center;
             align-items: center;
             &:focus-within {
-                background: red;
+                border: thin solid aqua;
             }
             &.inactive {
                 opacity: 0;
