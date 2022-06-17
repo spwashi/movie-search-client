@@ -5,7 +5,7 @@ export default function Genres({genres}: GenresParams) {
 
   return (
     <section>
-      <label><h3>Genres</h3></label>
+      <header><h3>Genres</h3></header>
       <ul className="genres">
         {genres.map(genre => <li key={genre}>{genre}</li>)}
       </ul>

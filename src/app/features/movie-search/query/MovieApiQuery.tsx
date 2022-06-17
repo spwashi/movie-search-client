@@ -47,7 +47,12 @@ export function MovieApiQuery({input, onError, onSuccess}: MovieApiQueryParams) 
       body:    JSON.stringify({title: input}),
     })
       .then(resp => resp.json())
-      .then(onSuccess)
+      .then((o) => {
+        if (o.error) {
+          return onError(o);
+        }
+        onSuccess(o);
+      })
       .catch(onError);
   }, [input]);
 

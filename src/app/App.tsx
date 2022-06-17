@@ -8,7 +8,6 @@ function App() {
   return (
     <main>
       <AppHeader/>
-      <MovieSearchBar/>
       <MovieDisplayWidget/>
     </main>
   );

@@ -1,6 +1,6 @@
 import {useQuery} from '../../../hooks/useQuery';
 
-export function useMovieInputQueryParam() {
+export function useMovieInput() {
   const {q: input} = useQuery();
   return input;
 }

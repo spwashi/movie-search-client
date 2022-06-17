@@ -1,25 +1,27 @@
 import styled from 'styled-components';
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {MovieApiQuery, MovieApiQueryFailResponse, MovieApiQuerySuccessResponse} from './query/MovieApiQuery';
 import {MovieDisplay} from './components/display/MovieDisplay';
-import {useMovieInputQueryParam} from './hooks/useMovieInputQueryParam';
+import {useMovieInput} from './hooks/useMovieInput';
+import {MovieSearchBar} from './components/search/MovieSearchBar';
 
 const MovieDisplayWidgetWrapper =
         styled.div`
-            background: aqua;
+            background: #282c34;
+            flex-basis: 100%;
         `;
 
 export function MovieDisplayWidget() {
-  const input                  = useMovieInputQueryParam();
+  const input                  = useMovieInput();
   const [response, setSuccess] = useState<MovieApiQuerySuccessResponse>();
   const [error, setError]      = useState<MovieApiQueryFailResponse>();
   const data                   = response?.data;
+      console.log(error)
   return (
-    <MovieDisplayWidgetWrapper>
+    <MovieDisplayWidgetWrapper className={(data ? 'search-mode' : 'display-mode') + ' movie-display-widget'}>
       <MovieApiQuery input={input} onError={setError} onSuccess={setSuccess}/>
-      <MovieDisplay data={data}/>
-      <pre>{JSON.stringify(error, null, 2)}</pre>
-      <pre>{JSON.stringify(response, null, 2)}</pre>
+      {(error || !data) && <MovieSearchBar active={error ? true : undefined}/>}
+      <MovieDisplay data={data} />
     </MovieDisplayWidgetWrapper>
   );
 }

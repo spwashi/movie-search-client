@@ -1,4 +1,7 @@
 main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   > header {
     background-color: #282c34;
     display: flex;
