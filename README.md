@@ -37,5 +37,5 @@ This is a website that searches for and displays information about movies, espec
    ```bash
    yarn serve;
    # or 
-   npm rnu serve
+   npm run serve;
    ```
