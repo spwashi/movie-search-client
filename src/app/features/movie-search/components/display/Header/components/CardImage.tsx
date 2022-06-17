@@ -7,6 +7,7 @@ const MovieImageWrapper =
             flex-direction: column;
             margin: 0;
             max-width: 30rem;
+            border: 3px solid hsl(300, 2%, 70%);
             @media screen and (max-width: 780px) {
                 max-width: min(30rem, 85%);
             }
@@ -21,7 +22,6 @@ const MovieImageWrapper =
                 display: inline;
                 padding: 1rem;
                 background: ghostwhite;
-                font-weight: 700;
                 line-height: 1.3rem;
             }
         `

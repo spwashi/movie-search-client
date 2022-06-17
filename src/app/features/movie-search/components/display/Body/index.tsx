@@ -18,7 +18,6 @@ const MovieDetailWrapper = styled.section`
     @media screen and (max-width: 780px) {
         margin: 0 auto;
     }
-
     header {
         width: 100%;
         margin-bottom: .5rem;
@@ -41,43 +40,22 @@ const MovieDetailWrapper = styled.section`
             }
         }
     }
-
-    ul {
-        padding: 0;
-    }
-    li {
-        list-style: none;
-    }
+    ul { padding: 0; }
+    li { list-style: none; }
     > section {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: row;
         align-items: stretch;
         justify-content: center;
+        @media screen and (max-width: 1200px) {
+            flex-flow: column wrap;
+        }
         > div {
             display: flex;
             justify-content: flex-start;
-            &.quick-stats-wrapper {
-                flex-direction: column;
-                > *:nth-child(2) {
-                    flex-basis: 100%;
-                }
-                @media screen and (max-width: 780px) {
-                    flex-direction: row;
-                }
-            }
-            &.cultural-detail-wrapper {
-                align-items: flex-start;
-                @media screen and (max-width: 780px) {
-                    flex-direction: column;
-                }
-            }
-            &.staff-wrapper {
-                display: flex;
-                flex-direction: column;
-                @media screen and (max-width: 780px) {
-                    flex-flow: row wrap;
-                    justify-content: center;
-                }
+            flex-direction: column;
+            @media screen and (max-width: 780px) {
+                justify-content: center;
             }
             .ratings {
                 display: flex;
@@ -105,6 +83,7 @@ const MovieDetailWrapper = styled.section`
                 ul {
                     display: flex;
                     justify-content: center;
+                    flex-flow: row wrap;
                     @media screen and (max-width: 780px) {
                         flex-direction: column;
                     }
@@ -115,7 +94,7 @@ const MovieDetailWrapper = styled.section`
                     border: thin solid #eee;
                     color: white;
                     font-weight: bold;
-                    margin: 0 .5rem;
+                    margin: .5rem;
                     @media screen and (max-width: 780px) {
                         margin: .5rem 0;
                         &:first-child { margin-top: 0; }
@@ -140,15 +119,13 @@ export default function Body() {
         <div className="quick-stats-wrapper">
           <Genres genres={genres}/>
           <Ratings ratings={data.ratings}/>
+          <Languages languages={language}/>
+          <Countries countries={country}/>
         </div>
         <div className="staff-wrapper">
           <Directors directors={directors}/>
           <Actors actors={actors}/>
           <Writers writers={writers}/>
-        </div>
-        <div className="cultural-detail-wrapper">
-          <Languages languages={language}/>
-          <Countries countries={country}/>
         </div>
       </section>
     </MovieDetailWrapper>

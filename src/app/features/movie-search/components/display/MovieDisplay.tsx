@@ -12,6 +12,9 @@ const MovieDisplayWrapper = styled.div`
     margin: 0 auto;
     max-width: 95vw;
     @media screen and (max-width: 780px) {
+        align-items: flex-start;
+    }
+    @media screen and (max-width: 780px) {
         align-items: center;
         flex-direction: column;
     }

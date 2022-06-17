@@ -1,21 +1,24 @@
 import styled from 'styled-components';
+import {useMovieContext} from '../../../../context/MovieContext';
 
 const Time =
         styled.time`
             display: flex;
-            position: absolute;
             bottom: 0;
-            background: whitesmoke;
             padding: .75rem;
-            border: thick solid thistle;
-            transform: translateY(50%);
-            box-shadow: inset 0 0 .5rem hsl(300, 24%, 20%);
-            > div:first-child {
-                margin-right: .5rem;
+            color: white;
+            font-style: italic;
+            &:before {content: '~'}
+            &:after {content: '~'}
+            > div + div {
+                margin-left: .5rem;
             }
         `
 
-export function RunTime({runtime}: { runtime: string }) {
+export function RunTime() {
+  const data = useMovieContext();
+
+  const runtime = data.runtime;
   const length  = +(runtime.split(' min') || '')[0];
   const hours   = Math.floor(length / 60);
   const minutes = length % 60;
