@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
-import {useQuery} from '../../useQuery';
+import {useMovieInputQueryParam} from '../../hooks/useMovieInputQueryParam';
 
 const MovieSearchWrapper =
         styled.section`
@@ -25,16 +25,11 @@ const SearchButton =
             margin: 1rem 1rem 0;
         `;
 
-export function useMovieInputQueryParam() {
-  const {q: input} = useQuery();
-  return input;
-}
-
 export function MovieSearchBar() {
   const [state, setState] = useState(useMovieInputQueryParam());
   return (
-    <MovieSearchWrapper id="movie-search">
-      <form action="/">
+    <MovieSearchWrapper>
+      <form action={'/'}>
         <InputWrapper>
           <label htmlFor="movie-search">Search</label>
           <input
