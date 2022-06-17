@@ -28,8 +28,8 @@ This is a website that searches for and displays information about movies, espec
    
 4. Install the server
    ```bash
-   cd server;
    git submodule update --init --recursive;
+   cd server;
    yarn;
    ```
    
