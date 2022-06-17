@@ -1,0 +1,14 @@
+main {
+  > header {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    .logo {
+      pointer-events: none;
+      height: 3rem;
+      display: inline;
+    }
+  }
+}
