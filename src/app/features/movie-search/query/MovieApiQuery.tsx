@@ -11,6 +11,7 @@ export type MovieData = {
   writers: string[];
   actors: string[];
   plot: string;
+  country: string[];
   language: string[];
   awards: string;
   poster: string;

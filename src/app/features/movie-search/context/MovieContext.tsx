@@ -11,6 +11,7 @@ export const MovieContext    = createContext<MovieData>({
                                                           imdbID:     '',
                                                           imdbRating: 0,
                                                           imdbVotes:  0,
+                                                          country:    [],
                                                           language:   [],
                                                           metascore:  0,
                                                           plot:       '',
