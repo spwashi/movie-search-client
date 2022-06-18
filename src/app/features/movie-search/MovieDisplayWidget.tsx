@@ -4,6 +4,7 @@ import {MovieApiQuery, MovieApiQueryFailResponse, MovieApiQuerySuccessResponse} 
 import {MovieDisplay} from './components/display/MovieDisplay';
 import {useMovieInput} from './hooks/useMovieInput';
 import {MovieSearchBar} from './components/search/MovieSearchBar';
+import {MovieSearchErrorDisplay} from './components/error/MovieSearchErrorDisplay';
 
 const MovieDisplayWidgetWrapper =
         styled.div`
@@ -16,12 +17,12 @@ export function MovieDisplayWidget() {
   const [response, setSuccess] = useState<MovieApiQuerySuccessResponse>();
   const [error, setError]      = useState<MovieApiQueryFailResponse>();
   const data                   = response?.data;
-      console.log(error)
   return (
     <MovieDisplayWidgetWrapper className={(data ? 'search-mode' : 'display-mode') + ' movie-display-widget'}>
       <MovieApiQuery input={input} onError={setError} onSuccess={setSuccess}/>
+      {error && <MovieSearchErrorDisplay error={error}/>}
       {(error || !data) && <MovieSearchBar active={error ? true : undefined}/>}
-      <MovieDisplay data={data} />
+      <MovieDisplay data={data}/>
     </MovieDisplayWidgetWrapper>
   );
 }

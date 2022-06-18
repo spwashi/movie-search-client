@@ -2,10 +2,29 @@
   --color-1: #282c34;
   --color-2: whitesmoke;
   --color-3: rgba(240, 240, 240, .3);
+  --color-4: darkred;
+  --color-5: white;
 }
 
 #root {
   background: var(--color-1);
+
+  .dark & {
+    --color-1: #282c34;
+    --color-2: whitesmoke;
+    --color-3: rgba(240, 240, 240, .3);
+    --color-4: darkred;
+    --color-5: white;
+  }
+
+  .light & {
+    --color-1: whitesmoke;
+    --color-2: #282c34;
+    --color-3: rgba(24, 24, 24, .3);
+    --color-4: darkred;
+    --color-5: black;
+  }
+
   > header {
     display: flex;
     flex-direction: row;
