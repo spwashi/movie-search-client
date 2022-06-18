@@ -41,7 +41,7 @@ interface MovieApiQueryParams {
 
 export function MovieApiQuery({input, onError, onSuccess}: MovieApiQueryParams) {
   useEffect(() => {
-    fetch('http://localhost:8001/api', {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api`, {
       method:  'post',
       headers: {'Content-Type': 'application/json'},
       body:    JSON.stringify({title: input}),
