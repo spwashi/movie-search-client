@@ -18,20 +18,18 @@ const MovieDetailWrapper = styled.section`
     @media screen and (max-width: 780px) {
         margin: 0 auto;
     }
-    header {
+    > header {
         width: 100%;
         margin-bottom: .5rem;
 
         h2 {
             background: rgba(0, 0, 0, .05);
-            margin: 0;
-            margin-bottom: .5rem;
+            margin: 0 0 .5rem;
             padding: 1rem;
             border-bottom: thin solid green;
             position: relative;
             color: #eee;
             font-weight: normal;
-
             font-size: 2rem;
             text-align: left;
             @media screen and (max-width: 780px) {
@@ -40,9 +38,7 @@ const MovieDetailWrapper = styled.section`
             }
         }
     }
-    ul { padding: 0; }
-    li { list-style: none; }
-    > section {
+    section.body {
         display: flex;
         flex-flow: row;
         align-items: stretch;
@@ -50,79 +46,81 @@ const MovieDetailWrapper = styled.section`
         @media screen and (max-width: 1200px) {
             flex-flow: column wrap;
         }
-        > div {
+        > .category-wrapper {
             display: flex;
             justify-content: flex-start;
             flex-direction: column;
             @media screen and (max-width: 780px) {
                 justify-content: center;
             }
-            .ratings {
+        }
+    }
+
+    section.category {
+        margin: 0 1rem 1rem;
+        border: thin solid #282c34;
+
+        @media screen and (max-width: 780px) {
+            margin: 0 .25rem .25rem;
+            padding: 1rem;
+        }
+        header {
+            border-bottom: thin solid rgb(245, 245, 245, .3);
+            @media screen and (max-width: 780px) {
+                width: 80vw;
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                li {
-                    background: transparent;
-                }
+                align-content: flex-start;
+                margin: 0 auto;
             }
-            > section {
-                margin: 0 1rem 1rem;
-                border: thin solid #282c34;
-                h3 {
-                    margin: 0;
-                    padding: .5rem;
-                }
-                @media screen and (max-width: 780px) {
-                    margin: 0 .25rem .25rem;
-                    padding: 1rem;
-                }
-                header {
-                    background: rgba(255, 255, 255, 1);
-                }
-                ul {
-                    display: flex;
-                    justify-content: center;
-                    flex-flow: row wrap;
-                    @media screen and (max-width: 780px) {
-                        flex-direction: column;
-                    }
-                }
-                li {
-                    padding: .5rem 1rem;
-                    background: #282c34;
-                    border: thin solid #eee;
-                    color: white;
-                    font-weight: bold;
-                    margin: .5rem;
-                    @media screen and (max-width: 780px) {
-                        margin: .5rem 0;
-                        &:first-child { margin-top: 0; }
-                        &:last-child { margin-bottom: 0; }
-                    }
-                }
+            h3 {
+                color: whitesmoke;
+                margin: 0;
+                padding: .5rem;
+            }
+        }
+        ul {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-flow: row wrap;
+            @media screen and (max-width: 780px) {
+                flex-flow: row wrap;
+                align-items: flex-start;
+                justify-content: center;
+            }
+        }
+        li {
+            padding: .5rem 1rem;
+            background: #282c34;
+            border: thin solid #eee;
+            color: white;
+            font-weight: bold;
+            margin: .5rem;
+            list-style: none;
+            @media screen and (max-width: 780px) {
+                margin: .5rem;
             }
         }
     }
 `;
 
 export default function Body() {
-  const data                                                          = useMovieContext();
-  const {actors, country, genres, directors, language, writers, type} = data;
+  const {actors, country, genres, ratings, directors, language, writers, type} = useMovieContext();
 
   return (
     <MovieDetailWrapper>
       <header>
         <h2>About the {type}</h2>
       </header>
-      <section>
-        <div className="quick-stats-wrapper">
+      <section className="body">
+        <div className="category-wrapper">
           <Genres genres={genres}/>
-          <Ratings ratings={data.ratings}/>
+          <Ratings ratings={ratings}/>
           <Languages languages={language}/>
           <Countries countries={country}/>
         </div>
-        <div className="staff-wrapper">
+        <div className="category-wrapper">
           <Directors directors={directors}/>
           <Actors actors={actors}/>
           <Writers writers={writers}/>

@@ -4,7 +4,7 @@ export default function Countries({countries}: CountriesParams) {
   if (!countries.filter(l => l !== 'N/A').length) return null;
 
   return (
-    <section>
+    <section className="category">
       <header><h3>Countries</h3></header>
       <ul className="countries">
         {countries.map(country => <li key={country}>{country}</li>)}

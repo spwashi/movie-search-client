@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 const Time = styled.time`
     display: inline-flex;
-    background: hsl(300, 2%, 70%);
+    background: #282c34;
     position: absolute;
     bottom: 0;
-    transform: translate(0%, 10%);
+    transform: translate(0%, 50%);
+    
+    color: whitesmoke;
     font-size: 1.2rem;
     padding: .5rem;
     font-weight: bold;

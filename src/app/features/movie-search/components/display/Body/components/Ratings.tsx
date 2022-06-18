@@ -12,7 +12,15 @@ const Rating = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    .ratings {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        li {
+            background: transparent;
+        }
+    }
     meter {
         margin: 0;
         width: 100%;
@@ -23,7 +31,7 @@ export default function Ratings({ratings}: RatingsParams) {
   if (!ratings.length) return null;
 
   return (
-    <RatingSection>
+    <RatingSection className="category">
       <header><h3>Ratings</h3></header>
       <ul className="ratings">
         {ratings.map(

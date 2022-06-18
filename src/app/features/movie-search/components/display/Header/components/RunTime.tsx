@@ -23,10 +23,13 @@ export function RunTime() {
   const hours   = Math.floor(length / 60);
   const minutes = length % 60;
 
+  let hasHours   = hours > 0;
+  let hasMinutes = minutes > 0;
+  if (!(hasMinutes || hasMinutes)) return null;
   return (
     <Time className="runtime" dateTime={`P${hours}H${minutes}M`}>
-      {hours > 0 && <div className="hours">{hours} {(hours ? 'hour' + (hours > 1 ? 's' : '') : '')}</div>}
-      {minutes > 0 && <div className="minutes">{minutes} {(minutes ? 'minute' + (minutes > 1 ? 's' : '') : '')}</div>}
+      {hasHours && <div className="hours">{hours} {(hours ? 'hour' + (hours > 1 ? 's' : '') : '')}</div>}
+      {hasMinutes && <div className="minutes">{minutes} {(minutes ? 'minute' + (minutes > 1 ? 's' : '') : '')}</div>}
     </Time>
   );
 }

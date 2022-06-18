@@ -7,9 +7,16 @@ const MovieImageWrapper =
             flex-direction: column;
             margin: 0;
             max-width: 30rem;
-            border: 3px solid hsl(300, 2%, 70%);
+            align-items: center;
             @media screen and (max-width: 780px) {
-                max-width: min(30rem, 85%);
+                max-width: none;
+                img {
+                    max-width: min(15rem, 85%);
+
+                }
+            }
+            img {
+                border: 3px solid hsl(300, 2%, 70%);
             }
 
             path {
@@ -18,11 +25,15 @@ const MovieImageWrapper =
             }
 
             figcaption {
+                border-top: thin solid ghostwhite;
                 text-align: center;
                 display: inline;
-                padding: 1rem;
-                background: ghostwhite;
-                line-height: 1.3rem;
+                margin-top: 2rem;
+                padding: 2rem;
+                font-size: 1.2rem;
+                color: ghostwhite;
+                line-height: 2rem;
+                font-style: italic;
             }
         `
 function randomColor() {
@@ -31,7 +42,7 @@ function randomColor() {
   ][Math.floor(Math.random() * 16)]).join('');
 }
 export function CardImage() {
-  const data      = useMovieContext();
+  const data = useMovieContext();
   return (
     <MovieImageWrapper>
       {data.poster === 'N/A'
