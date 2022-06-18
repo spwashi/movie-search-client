@@ -1,9 +1,12 @@
-main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+:root {
+  --color-1: #282c34;
+  --color-2: whitesmoke;
+  --color-3: rgba(240, 240, 240, .3);
+}
+
+#root {
+  background: var(--color-1);
   > header {
-    background-color: #282c34;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,5 +16,10 @@ main {
       height: 3rem;
       display: inline;
     }
+  }
+  main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }

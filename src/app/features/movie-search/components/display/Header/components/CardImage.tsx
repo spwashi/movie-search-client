@@ -16,22 +16,22 @@ const MovieImageWrapper =
                 }
             }
             img {
-                border: 3px solid hsl(300, 2%, 70%);
+                border: 3px solid var(--color-3);
             }
 
             path {
-                stroke: #282c34;
+                stroke: var(--color-1);
                 fill: url(#gradient);
             }
 
             figcaption {
-                border-top: thin solid ghostwhite;
+                border-top: thin solid var(--color-3);
                 text-align: center;
                 display: inline;
                 margin-top: 2rem;
                 padding: 2rem;
                 font-size: 1.2rem;
-                color: ghostwhite;
+                color: var(--color-2);
                 line-height: 2rem;
                 font-style: italic;
             }

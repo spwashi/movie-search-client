@@ -4,17 +4,17 @@ import styled from 'styled-components';
 
 const Time = styled.time`
     display: inline-flex;
-    background: #282c34;
+    background: var(--color-1);
     position: absolute;
     bottom: 0;
     transform: translate(0%, 50%);
     
-    color: whitesmoke;
+    color: var(--color-2);
     font-size: 1.2rem;
     padding: .5rem;
     font-weight: bold;
     z-index: 10;
-    border: 3px solid hsl(300, 2%, 70%);
+    border: 3px solid var(--color-3);
     .year {
         order: 3;
     }

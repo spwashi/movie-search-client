@@ -15,9 +15,9 @@ const MovieHeading =
                 margin: 0 0 2rem;
                 font-weight: normal;
                 padding: .5rem 1rem .5rem;
-                color: whitesmoke;
+                color: var(--color-2);
                 font-size: 3rem;
-                border: 3px solid hsl(300, 2%, 70%);
+                border-bottom: thin solid var(--color-3);
                 text-align: center;
             }
 

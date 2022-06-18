@@ -14,7 +14,7 @@ const MovieSearchWrapper =
             justify-content: center;
             align-items: center;
             &:focus-within {
-                border: thin solid aqua;
+                border: thin solid var(--color-3);
             }
             &.inactive {
                 opacity: 0;
@@ -69,7 +69,7 @@ const InputWrapper =
                     position: absolute;
                     right: 0;
                 }
-                color: white;
+                color: var(--color-2);
                 padding: .5em;
             }
         `;
@@ -86,7 +86,7 @@ const SearchButton =
                 visibility: hidden;
             }
             i {
-                color: white;
+                color: var(--color-2);
                 font-size: 2rem;
             }
             header & {

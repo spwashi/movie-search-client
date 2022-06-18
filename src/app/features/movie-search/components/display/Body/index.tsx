@@ -23,12 +23,11 @@ const MovieDetailWrapper = styled.section`
         margin-bottom: .5rem;
 
         h2 {
-            background: rgba(0, 0, 0, .05);
             margin: 0 0 .5rem;
             padding: 1rem;
-            border-bottom: thin solid green;
+            border-bottom: thin solid var(--color-3);
             position: relative;
-            color: #eee;
+            color: var(--color-2);
             font-weight: normal;
             font-size: 2rem;
             text-align: left;
@@ -58,14 +57,14 @@ const MovieDetailWrapper = styled.section`
 
     section.category {
         margin: 0 1rem 1rem;
-        border: thin solid #282c34;
+        border: thin solid var(--color-1);
 
         @media screen and (max-width: 780px) {
             margin: 0 .25rem .25rem;
             padding: 1rem;
         }
         header {
-            border-bottom: thin solid rgb(245, 245, 245, .3);
+            border-bottom: thin solid var(--color-3);
             @media screen and (max-width: 780px) {
                 width: 80vw;
                 display: flex;
@@ -74,7 +73,7 @@ const MovieDetailWrapper = styled.section`
                 margin: 0 auto;
             }
             h3 {
-                color: whitesmoke;
+                color: var(--color-2);
                 margin: 0;
                 padding: .5rem;
             }
@@ -92,9 +91,9 @@ const MovieDetailWrapper = styled.section`
         }
         li {
             padding: .5rem 1rem;
-            background: #282c34;
-            border: thin solid #eee;
-            color: white;
+            background: var(--color-1);
+            border: thin solid var(--color-3);
+            color: var(--color-2);
             font-weight: bold;
             margin: .5rem;
             list-style: none;

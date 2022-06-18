@@ -6,7 +6,7 @@ const Time =
             display: flex;
             bottom: 0;
             padding: .75rem;
-            color: white;
+            color: var(--color-2);
             font-style: italic;
             &:before {content: '~'}
             &:after {content: '~'}

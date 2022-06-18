@@ -12,7 +12,7 @@ const MovieHeader =
             align-items: center;
             position: relative;
             padding: 3rem 3rem;
-            border-right: thin solid white;
+            border-right: thin solid var(--color-3);
 
             @media screen and (max-width: 780px) {
                 border-right: none;

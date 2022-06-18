@@ -7,7 +7,7 @@ import {MovieSearchBar} from './components/search/MovieSearchBar';
 
 const MovieDisplayWidgetWrapper =
         styled.div`
-            background: #282c34;
+            background: var(--color-1);
             flex-basis: 100%;
         `;
 
