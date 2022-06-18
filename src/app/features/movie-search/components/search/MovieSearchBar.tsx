@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styled from 'styled-components'
 import {useMovieInput} from '../../hooks/useMovieInput';
 
@@ -42,9 +42,19 @@ const InputWrapper =
             align-items: center;
             flex-direction: column;
             font-size: 2rem;
+            position: relative;
             input {
+                opacity: 1;
+                transition: opacity .3s;
                 font-size: 2rem;
                 padding: .5em;
+                header .search-wrapper:not(:focus-within) & {
+                    opacity: 0;
+                }
+                @media screen and (max-width: 780px) {
+                    font-size: 1rem;
+                    flex-flow: column wrap;
+                }
                 header & {
                     padding: .25em;
                     font-size: 1rem;
@@ -55,6 +65,10 @@ const InputWrapper =
                 font-size: 1rem;
             }
             label {
+                header .search-wrapper:not(:focus-within) & {
+                    position: absolute;
+                    right: 0;
+                }
                 color: white;
                 padding: .5em;
             }
@@ -63,8 +77,18 @@ const InputWrapper =
 const SearchButton =
         styled.button`
             font-size: 1rem;
+            background: transparent;
             padding: .25rem;
             margin-top: 2rem;
+            position: relative;
+            span {
+                position: absolute;
+                visibility: hidden;
+            }
+            i {
+                color: white;
+                font-size: 2rem;
+            }
             header & {
                 margin: 0 1rem 0;
             }
@@ -74,24 +98,35 @@ export function MovieSearchBar({
                                  active,
                                  location = 'body',
                                }: { active?: boolean, location?: 'body' | 'header' }) {
-  let input               = useMovieInput();
+  const input             = useMovieInput();
   const [state, setState] = useState(input);
-  active                  = active || ((location === 'body') !== !!input);
+  const isFullMode        = location === 'body';
+  active                  = active || (isFullMode !== !!input);
+  const inputIsUnchanged  = input === state;
+  const inputRef          = useRef<HTMLInputElement | null>(null);
   return (
-    <MovieSearchWrapper className={active ? 'active' : 'inactive'}>
+    <MovieSearchWrapper className={'search-wrapper ' + (active ? 'active' : 'inactive')}>
       <form action={'/'}>
         <InputWrapper>
           <label htmlFor="movie-search">Search</label>
           <input
             autoFocus={active}
             name="q"
+            ref={inputRef}
             id="movie-search"
             type="search"
             value={state}
             onChange={e => setState(e.target.value)}
           />
         </InputWrapper>
-        <SearchButton disabled={input === state}>search</SearchButton>
+        <SearchButton
+          disabled={isFullMode ? inputIsUnchanged : false}
+          type={inputIsUnchanged ? 'button' : 'submit'}
+          onClick={() => {inputRef.current?.focus()}}
+        >
+          <span>search</span>
+          <i className="fa fa-search"/>
+        </SearchButton>
       </form>
     </MovieSearchWrapper>
   );
