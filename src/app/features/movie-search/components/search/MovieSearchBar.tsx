@@ -94,10 +94,8 @@ const SearchButton =
             }
         `;
 
-export function MovieSearchBar({
-                                 active,
-                                 location = 'body',
-                               }: { active?: boolean, location?: 'body' | 'header' }) {
+type Created = { active?: boolean, location?: 'body' | 'header' };
+export function MovieSearchBar({active, location = 'body'}: Created) {
   const input             = useMovieInput();
   const [state, setState] = useState(input);
   const isFullMode        = location === 'body';
@@ -110,7 +108,7 @@ export function MovieSearchBar({
         <InputWrapper>
           <label htmlFor="movie-search">Search</label>
           <input
-            autoFocus={active}
+            autoFocus={active && !state.length}
             name="q"
             ref={inputRef}
             id="movie-search"

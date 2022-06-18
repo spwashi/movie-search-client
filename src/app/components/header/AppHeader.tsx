@@ -2,7 +2,7 @@ import logo from '../../../assets/ABR-Logo-Horizontal.png';
 import React from 'react';
 import {MovieSearchBar} from '../../features/movie-search/components/search/MovieSearchBar';
 import styled from 'styled-components';
-import {AccessibilityMenu} from './features/accessibility';
+import {AccessibilityMenu} from '../../features/accessibility';
 
 
 const HeaderWrapper =

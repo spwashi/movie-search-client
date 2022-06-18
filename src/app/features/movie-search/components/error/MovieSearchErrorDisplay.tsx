@@ -3,7 +3,7 @@ import {MovieApiQueryFailResponse} from '../../query/MovieApiQuery';
 import React from 'react';
 
 const MovieErrorDisplayWrapper =
-        styled.pre`
+        styled.div`
             position: absolute;
             background: var(--color-4);
             color: var(--color-5);
