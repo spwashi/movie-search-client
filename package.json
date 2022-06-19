@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "update-design": "cp ./design/exports/favicon.png public/"
+    "update-design": "cp -rf ./design/exports/* public/"
   },
   "eslintConfig": {
     "extends": [
