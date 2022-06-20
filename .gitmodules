@@ -4,3 +4,6 @@
 [submodule "design"]
 	path = design
 	url = https://github.com/spwashi/movie-search-client-design.git
+[submodule "discussion"]
+	path = discussion
+	url = https://github.com/spwashi/movie-search-discussion.git
